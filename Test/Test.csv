@@ -1,5 +1,5 @@
 # Nombre,Matricula,Materia 1,Materia 2,Materia 3,Final,Username,Password
-New,2022001,6,6,6,6,Juanpa,12345ab
+New,2022001,4,4,4,4,Juanpa,12345ab
 Pedro,2022002,10,9,9,9,Pepe,12345a3
 Carlos,2022003,10,9,9,9,Gatito,12345a4
 Kirito,20220004,9,9,9,9,Kazuto,12345a5
@@ -33,3 +33,4 @@ Pe,20220031,9,9,9,3,Kazuto,12345a5
 Pedro,20220032,9,9,9,3,Kazuto,12345a5
 Kirito,20220033,9,9,9,9,Cris,12345a56
 Newname,11111111,1,1,1,1,Pedrito,Pedrito1234
+Hola,2000010,0,0,0,0,prueba,prueba1
