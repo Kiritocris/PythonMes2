@@ -1,8 +1,7 @@
 import sys
-import GUI
-
 sys.path.append("../PythonMes2")
 from Clases import Verify
+from Windows import GUI
 
 def signinwindow():
     check=Verify.Verify()
@@ -60,6 +59,4 @@ def signinwindow():
     btnreg.grid(row=6,column=1,pady=60)
     
     signin.mainloop()
-
-signinwindow()
 

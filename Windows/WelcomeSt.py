@@ -36,5 +36,3 @@ def open(st):
     framegrid.pack(fill='both')
 
     Welcomestudent.mainloop()
-
-open('New')

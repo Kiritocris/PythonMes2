@@ -104,4 +104,4 @@ class Interfaz:
         tkMessageBox.showerror('Credenciales incorrectas','Usuario o contraseña incorrecto')
     
     def warningpage(self):
-        tkMessageBox.showinfo('indice inferior a 0','Esta buscando alumnos con un indice menor que 0 no se puede realizar')
+        tkMessageBox.showinfo('indice inferior a 0','Estas buscando en un indice que no existe')
