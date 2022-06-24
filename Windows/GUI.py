@@ -56,7 +56,7 @@ class Interfaz:
         )
         return newentry
 
-    def lbl(self,frame,colorb,padx,pady,text,font='default',family=None):
+    def lbl(self,frame,colorb,padx,pady,text,font='default',family=None,bgcolor=None):
 
         if(not family):
             if(font=='default'):
@@ -85,6 +85,8 @@ class Interfaz:
             text=text,
             font=font
         )
+        if(bgcolor):
+            label.config(background=bgcolor)
         return label
 
     def lblframe(self,window,border=0,width=None,height=None):

@@ -57,6 +57,9 @@ def signinwindow():
 
     btnreg=ntk.btn(framegrid,'Register','#37123C','#FFFFFF','#71677C','#A99F96',btnpadx,btnpady,lambda:check.addstudent())
     btnreg.grid(row=6,column=1,pady=60)
+
+    bytag=ntk.lbl(signin,'#FFFFFF',30,40,'By Cristhian Cortes Cruz','header3',font,'#71677C')
+    bytag.pack()
     
     signin.mainloop()
 
