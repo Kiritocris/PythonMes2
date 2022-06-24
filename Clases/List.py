@@ -1,5 +1,5 @@
 import pandas as pd
-
+import numpy as np
 import sys 
 sys.path.append(r'C:\Users\Kirito\Documents\Curso de programacion\Bootcamp\Proyectos\PythonMes2')
 from Clases import Student
@@ -79,9 +79,6 @@ class List():
         nametag4=ntk.lbl(self.listframe,'#37123C',6,4,'Calculo','header3','Helvetica')
         nametag4.grid(row=0,column=4)
 
-        nametag5=ntk.lbl(self.listframe,'#37123C',6,4,'Final','header3','Helvetica')
-        nametag5.grid(row=0,column=5)
-
         nametag6=ntk.lbl(self.listframe,'#37123C',6,4,'Modificar','header3','Helvetica')
         nametag6.grid(row=0,column=6)
 
@@ -91,16 +88,87 @@ class List():
             data=students[i].getdata()
             print(data)
             i+=1
-            for j in range(6):
+            for j in range(5):
                 studentvalue=ntk.lbl(self.listframe,'#37123C',6,20,data[j],'header3','Helvetica')
                 studentvalue.grid(row=i,column=j)
+        try:
+            btns=self.btns(students,0,students[0])
+            btns=self.btns(students,1,students[1])
+            btns=self.btns(students,2,students[2])
+            btns=self.btns(students,3,students[3])
+            btns=self.btns(students,4,students[4])
+            btns=self.btns(students,5,students[5])
+            btns=self.btns(students,6,students[6])
+            btns=self.btns(students,7,students[7])
+            btns=self.btns(students,8,students[8])
+        except:
+            print('No existe algun indice')
         
         return self.listframe
 
-    def changevalues(self,nombre):
-        changewindow=ntk.window('Cambio de notas')
-        print(nombre)
+    def btns(self,value,i,student):
+        if(isinstance(value[i],Student.Student)):
+            btn=ntk.btn(self.listframe,'Modificar','#37123C','#FFFFFF','#71677C','#A99F96',10,5,lambda :self.changevalue(student.getdata()))
+            btn.grid(row=i+1,column=6)
+        return btn
 
-        changewindow.mainloop()
+    def changevalue(self,value):
+        openvalu=ntk.window("Modificar calificacion")
+        submessage=ntk.lbl(openvalu,'#37123C',5,4,'Revisa tus calificaciones c:','header3')
+        submessage.pack()
+
+        framegrid=ntk.lblframe(openvalu)
+        framegrid.pack(fill='both')
+
+        file=pd.read_csv('Test/Test.csv',header=0)
+
+        index=file.index[file['# Nombre'] == value[0]].to_list()
+
+        row=file.loc[ index[0] , : ]
+        
+        labels=[]
+        tags=['Nombre','Matricula','Materia 1','Materia 2','Materia 3','Final']
+        for i in range(len(tags)):
+            tag=ntk.lbl(framegrid,'#37123C',30,40,tags[i],'header3')
+            labels.append(tag)
+            labels[i].grid(row=i,column=0,padx=(100,0),pady=(5,0))
+
+        values=[]
+        for i in range(len(tags)):
+            tag=ntk.lbl(framegrid,'#37123C',30,40,row[i],'header3')
+            values.append(tag)
+            values[i].grid(row=i,column=1,padx=(100,0),pady=(5,0))
+
+        entrys=[]
+        for i in range(3):
+            tag=ntk.entry(framegrid,'#A99F96','#000000',30)
+            entrys.append(tag)
+            entrys[i].grid(row=i+2,column=2,padx=(250,0),pady=(5,0))
+
+        tagnew=ntk.lbl(framegrid,'#37123C',30,40,'Ingrese calificaciones nuevas','header3')
+        tagnew.grid(row=1,column=2,padx=(250,0),pady=(5,0))
+
+        submit=ntk.btn(framegrid,'Guardar cambios','#37123C','#FFFFFF','#71677C','#A99F96',5,2,lambda: self.savedata(openvalu,index[0],entrys[0].get(),entrys[1].get(),entrys[2].get()))
+        submit.grid(row=5,column=2,padx=(250,0),pady=(5,0),)
+
+        cancelsubmit=ntk.btn(framegrid,'Cancelar','#37123C','#FFFFFF','#71677C','#A99F96',5,2,openvalu.destroy)
+        cancelsubmit.grid(row=6,column=2,padx=(250,0),pady=(5,0),)
+
+        openvalu.mainloop()
+    
+    def savedata(self,frame,index,*args):
+        data_p = pd.read_csv('./Test/Test.csv')
+        data = np.array(data_p.values)
+
+        newvalues=[]
+        for i in range(3):
+            newvalues.append(int(args[i]))
+            data[index][i+2] = newvalues[i]
+        prom=sum(newvalues)/len(newvalues)
+        data[index][5]=int(prom)
+        np.savetxt('./Test/Test.csv',data, delimiter=",",fmt="%s",header="Nombre,Matricula,Materia 1,Materia 2,Materia 3,Final,Username,Password")
+        
+        frame.destroy()
+
     
     

@@ -34,13 +34,13 @@ def signinwindow():
     entradamr=ntk.entry(framegrid,'#A99F96','#000000',30)
     entradamr.grid(row=2,column=0)
 
-    entradamrpass=ntk.entry(framegrid,'#A99F96','#000000',30)
+    entradamrpass=ntk.entry(framegrid,'#A99F96','#000000',30,'*')
     entradamrpass.grid(row=4,column=0)
 
     entradast=ntk.entry(framegrid,'#A99F96','#000000',30)
     entradast.grid(row=2,column=1)
 
-    entradastpass=ntk.entry(framegrid,'#A99F96','#000000',30)
+    entradastpass=ntk.entry(framegrid,'#A99F96','#000000',30,'*')
     entradastpass.grid(row=4,column=1)
 
     labelmrpass=ntk.lbl(framegrid,'#37123C',30,40,'Passsword','header3',font)
