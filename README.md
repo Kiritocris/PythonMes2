@@ -25,7 +25,7 @@ Despues intalar numpy (En caso de no tenerlo)
 
 ## Cómo se usa
 
-Para la ejecucion de esta aplicacion solo ejecuta el main que esta la raiz de la carpeta para inicizalizar
+Para la ejecucion de esta aplicacion solo ejecuta el main.py que esta la raiz de la carpeta para inicizalizar
 
 ## Cómo contribuir
 
