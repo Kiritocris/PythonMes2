@@ -25,8 +25,6 @@ class List():
         mat2s=file['Materia 2'][self.indexi:self.indexf].to_list()
         mat3s=file['Materia 3'][self.indexi:self.indexf].to_list()
         finals=file['Final'].to_list()
-        print(nombres)
-        print(self.indexi,self.indexf)
         size=len(nombres)
         for i in range(size):
             profilestudent=Student.Student(nombres[i],matriculas[i],mat1s[i],mat2s[i],mat3s[i],finals[i])
@@ -37,7 +35,6 @@ class List():
         if(self.indexi==0):
             ntk.warningpage()
         else:
-            print('Entro en el else')
             self.indexi-=9
             self.indexf-=10
             self.readdir()
@@ -60,7 +57,6 @@ class List():
         return self.__list
     
     def createlist(self,frame):
-        print('Usando createlist')
         self.listframe=ntk.lblframe(frame)
         self.listframe.pack()
 
@@ -86,7 +82,6 @@ class List():
         size=len(students)
         for i in range(size):
             data=students[i].getdata()
-            print(data)
             i+=1
             for j in range(5):
                 studentvalue=ntk.lbl(self.listframe,'#37123C',6,20,data[j],'header3','Helvetica')
@@ -102,7 +97,7 @@ class List():
             btns=self.btns(students,7,students[7])
             btns=self.btns(students,8,students[8])
         except:
-            print('No existe algun indice')
+            pass
         
         return self.listframe
 

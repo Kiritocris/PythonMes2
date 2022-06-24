@@ -36,7 +36,6 @@ def open(st):
     file=pd.read_csv('Test/Test.csv',header=0)
 
     index=file.index[file['# Nombre'] == st].to_list()
-    print(index)
     row=file.loc[ index[0] , : ]
     
     labels=[]
