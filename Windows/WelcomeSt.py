@@ -51,5 +51,14 @@ def open(st):
         values.append(tag)
         values[i].grid(row=i,column=1,padx=(250,0),pady=(5,0))
 
+    final=int(row[5])
+    if(final>=6):
+        msg='Aprobaste c:'
+    else:
+        msg='Haz reprobado :c'
+
+    tagaprove=ntk.lbl(framegrid,'#37123C',30,40,msg,'header3')
+    tagaprove.grid(row=5,column=2,padx=(20,0),pady=(5,0))
+
 
     Welcomestudent.mainloop()
